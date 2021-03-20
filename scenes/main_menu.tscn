@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://nodes/label.tscn" type="PackedScene" id=1]
+[ext_resource path="res://fonts/cutive_mono_72.tres" type="DynamicFont" id=2]
+[ext_resource path="res://nodes/button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/main_menu.gd" type="Script" id=4]
+
+[node name="main_menu" type="Spatial"]
+script = ExtResource( 4 )
+
+[node name="label" parent="." instance=ExtResource( 1 )]
+margin_left = 0.0
+margin_top = 88.0
+margin_right = 1920.0
+margin_bottom = 168.0
+custom_fonts/font = ExtResource( 2 )
+text = "First Person Exploration Template"
+
+[node name="button_play" parent="." instance=ExtResource( 3 )]
+text = "play"
+
+[node name="button_quit" parent="." instance=ExtResource( 3 )]
+margin_top = 514.0
+margin_bottom = 568.0
+text = "quit"
+[connection signal="pressed" from="button_play" to="." method="_play_game"]
+[connection signal="pressed" from="button_quit" to="." method="_quit_game"]
